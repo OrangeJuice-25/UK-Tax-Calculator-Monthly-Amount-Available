@@ -1,0 +1,36 @@
+salary = int(input("Enter your annual salary: "))
+money_received = 0
+
+# Personal Allowance (0%)
+if salary > 12570:
+    money_received += 12570
+    salary -= 12570
+else:
+    money_received += salary
+    salary = 0
+
+# Basic rate (20%)
+if salary > 37700:
+    money_received += 37700 * 0.8
+    salary -= 37700
+else:
+    money_received += salary * 0.8
+    salary = 0
+
+# Higher rate (40%)
+if salary > 74870:
+    money_received += 74870 * 0.6
+    salary -= 74870
+else:
+    money_received += salary * 0.6
+    salary = 0
+
+# Additional rate (45%)
+if salary > 0:
+    money_received += salary * 0.55
+    salary = 0
+
+monthly_spend = money_received / 12
+
+print("Annual take-home pay: £", round(money_received, 2))
+print("Available to spend per month: £", round(monthly_spend, 2))
